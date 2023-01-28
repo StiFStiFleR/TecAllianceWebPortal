@@ -1,0 +1,29 @@
+<div id="input-form">
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Add ToDo...</mat-label>
+        <input matInput autocomplete="off" #newNoteInput maxlength=250>
+    </mat-form-field>
+    <button id="btn-submit" mat-flat-button color="primary" (click)="createNote(newNoteInput)">submit</button>
+</div>
+<div *ngFor="let note of notes;">
+    <div id="note" *ngIf="!note.isOnEditMode">
+        <mat-checkbox [(ngModel)]="note.isDone" (ngModelChange)="updateNote(note)"></mat-checkbox>
+        <p [ngStyle]="{'text-decoration': (note.isDone) ? 'line-through' : 'none'}">{{note.description}}</p>
+        <button mat-mini-fab color="primary" (click)="changeMode(note)">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn" (click)="deleteNote(note)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+    <div id="note" *ngIf="note.isOnEditMode">
+        <mat-checkbox [(ngModel)]="note.isDone" disabled></mat-checkbox>
+        <textarea [autosize]="true" matInput maxlength=250 type="text" #noteInput>{{note.description}}</textarea>
+        <button mat-mini-fab color="primary" (click)="updateNote(note, noteInput.value)">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn" (click)="changeMode(note)">
+            <mat-icon>clear</mat-icon>
+        </button>
+    </div>
+</div>

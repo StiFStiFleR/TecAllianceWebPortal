@@ -1,0 +1,26 @@
+#main-header, #nav-links {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  background-color: #1976d2;
+}
+
+#main-header>img {
+  margin: 0px 20px;
+  width: 50px;
+}
+
+#main-header>h2,
+#nav-links>h2 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#nav-links > h2:hover {
+  cursor: pointer;
+}
+
+#white-text {
+  color:white; 
+  font-weight: bold;
+}

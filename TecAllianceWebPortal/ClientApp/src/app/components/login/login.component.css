@@ -1,0 +1,19 @@
+#container {
+    margin: auto;
+    max-width: 350px;
+    text-align: center;
+  }
+
+  #login-form {
+    background-color: gray;
+  }
+  #form-control {
+    margin-top: 4px;
+    margin-bottom: 19px;
+  }
+  
+  #btn:hover {
+    background-color: var(--saved);
+    color: green;
+  }
+  
